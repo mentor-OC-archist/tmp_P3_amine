@@ -23,14 +23,40 @@ export default class APIClass extends DOMClass{
 
 
     getWorks(param) {
+    fetch('http://localhost:5678/api/works')
+    .then(response => response.json())
+    .then(this.renderWorksCards)
+    .catch(error => console.error('Erreur lors de la récupération des données:', error));
         
     }
     
     getCategories(param) {
-
+        fetch('http://localhost:5678/api/categories')
+        .then(response => response.json())
+        .then(this.renderFilterGallery)
+        .catch(error => console.log(error));
+    
     }
     
-    
-    
+    getFilter(param){
+
+    }
 }
-// const chose = new DOMClass()
+
+let filterButtons = document.querySelectorAll(".filterBtn");
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        this.filterWorksByCategory();
+        console.log("ok");
+    });
+});
+
+let filterWorksByCategory = (category) => {
+    const allWorks = document.querySelectorAll(".gallery figure");
+    allWorks.forEach(work => {
+        if (category === "Tous" || work.dataset.category === category) {
+            work.style.display = 'block';
+        } else {
+            work.style.display = 'none';
+        }
+    });}

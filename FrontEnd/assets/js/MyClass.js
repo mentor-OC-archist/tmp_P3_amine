@@ -25,4 +25,4 @@ export default class MyClass extends APIClass{
 
 
 }
-const machinchose = new MyClass()
+const myApp = new MyClass()
