@@ -36,25 +36,12 @@ export default class DOMClass{
                 categories.forEach((item, i) => {
                     document.querySelector(".filterBtn").innerHTML +=
                     `<button>${item.name}</button>`
-                });
-            }
-
-            filterWorksByCategory = (category) => {
-                const allWorks = document.querySelectorAll(".gallery");
-                allWorks.forEach(work => {
-                    if (category === "Tous" || work.dataset.category === category) {
-                        work.style.display = 'block';
-                    } else {
-                        work.style.display = 'none';
-                    }
-                });
+                    
+                    });
+                };
                 
-            }
-            
-            
-            
-        }
-        
 
-
-    
+            
+                
+            }          
+            

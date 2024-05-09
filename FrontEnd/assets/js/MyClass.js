@@ -20,9 +20,9 @@ export default class MyClass extends APIClass{
 
         this.getWorks()
         this.getCategories()
+        this.getFilter()
     }
     
 
 
 }
-const myApp = new MyClass()
