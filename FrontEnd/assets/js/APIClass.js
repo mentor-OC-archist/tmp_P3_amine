@@ -17,21 +17,20 @@ export default class APIClass extends DOMClass {
     constructor(props) {
         super()
         props && Object.assign(this, props)
-        console.log(this)
+        //console.log(this)
     }
 
 
 
     getWorks(param) {
-        fetch('http://localhost:5678/api/works')
+        fetch(this.#works_endpoint)
             .then(response => response.json())
             .then(this.renderWorksCards)
-            .catch(error => console.error('Erreur lors de la récupération des données:', error));
-
+            .catch(error => console.log(error));
     }
 
     getCategories(param) {
-        fetch('http://localhost:5678/api/categories')
+        fetch(this.#categories_endpoint)
             .then(response => response.json())
             .then(this.renderFilterGallery)
             .catch(error => console.log(error));
@@ -39,23 +38,15 @@ export default class APIClass extends DOMClass {
     }
 
     getFilter(param) {
-        
         Promise.all([
-            fetch('http://localhost:5678/api/works'),
-            fetch('http://localhost:5678/api/categories')
+            fetch(this.#works_endpoint),
+            fetch(this.#categories_endpoint)
         ])
-            .then((responses) => {
-                return Promise.all(responses.map((response) => {
-                    return response.json();
-                }));
-            })
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        .then(([worksRes, categoriesRes]) => Promise.all([worksRes.json(), categoriesRes.json()]))
+        .then(([works, categories]) => {
+            this.filterClickEvent()
+        })
+        .catch(error => console.log(error));
     }
+
 }
-
-

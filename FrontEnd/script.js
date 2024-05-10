@@ -1,7 +1,7 @@
 import MyClass from "./assets/js/MyClass.js"
-const myApp = new MyClass()
 
-let filters = document.querySelectorAll(".filterBtn") 
+
+/**let filters = document.querySelectorAll(".filterBtn") 
 console.log(filters);  
 
 for (let filter of filters) {
@@ -10,7 +10,7 @@ for (let filter of filters) {
         let tag = this.textContent;
         console.log(this.textContent);
     })
-}
+}**/
 
 
 

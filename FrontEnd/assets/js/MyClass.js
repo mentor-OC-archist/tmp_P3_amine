@@ -10,19 +10,20 @@ export default class MyClass extends APIClass{
     // #privateField = 0;
     // Private Static field declarations
     // static #privateStaticField = 0;
-
-
-
+    
+    
+    
     constructor(props) {
         super()
         props && Object.assign(this,props)
-        console.log(this)
-
+        //console.log(this)
+        
         this.getWorks()
         this.getCategories()
         this.getFilter()
     }
     
-
-
+    
+    
 }
+const myApp = new MyClass()
