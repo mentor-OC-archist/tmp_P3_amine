@@ -183,9 +183,12 @@ nav ul {
 }
 
 nav li {
-	padding: 0 10px;
+	padding: 0 1.5em;
 	font-size: 1.2em;
+	
 }
+
+
 
 li:hover {
 	color: #B1663C;
@@ -273,9 +276,21 @@ li:hover {
 	padding-bottom: 0.5em;
 }
 
+
+.hide {
+	display: none;
+}
+
 #contact {
 	width: 50%;
 	margin: auto;
+}
+
+#login {
+	width: 40%;
+	margin: auto;
+	margin-top:  10em;
+	margin-bottom: 15em;
 }
 
 #contact>* {
@@ -287,21 +302,31 @@ li:hover {
 	margin-bottom: 20px;
 }
 
-#contact form {
+#login h2 {
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+
+}
+
+#contact form,
+#login form {
 	text-align: left;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input,
+#login input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-#contact label {
+#contact label,
+#login label {
 	margin: 2em 0 1em 0;
 }
 
@@ -320,6 +345,17 @@ input[type="submit"] {
 	text-align: center;
 	border-radius: 60px;
 }
+
+#login h3 {
+	margin: auto;
+}
+
+#login h3:hover {
+	text-decoration: underline;
+}
+
+
+
 
 footer nav ul {
 	display: flex;

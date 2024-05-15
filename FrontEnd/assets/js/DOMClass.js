@@ -9,6 +9,7 @@ export default class DOMClass {
     // static #privateStaticField = 0;
     works = []
     categories = []
+    //login = []
 
 
 
@@ -25,7 +26,7 @@ export default class DOMClass {
     renderWorksCards = (data) => {
         this.works = data
         data.forEach((item, i) => {
-        document.querySelector(".gallery").innerHTML +=
+            document.querySelector(".gallery").innerHTML +=
                 `<figure data-category = "${item.category.name}">
                 <img src="${item.imageUrl}" alt="Abajour Tahina">
                 <figcaption>${item.title}</figcaption>
@@ -45,18 +46,76 @@ export default class DOMClass {
         });
     };
 
-    filterClickEvent = () => {
+    
+    
+    // filterClickEvent(){
+        filterClickEvent = () => {
+            
+            const filters = document.querySelectorAll(".filterBtn")
+            , works = document.querySelectorAll(".gallery figure")
 
-        let filters = document.querySelectorAll(".filterBtn")
+            
+            filters.forEach(filter => {
+                filter.addEventListener("click", function (e) {
+                    
+                    works.forEach((work, i) => {
+                        work.classList.remove("hide")
+                    })
+                    
+                    works.forEach((work, i) => {
+                        if (e.target.textContent == "Tous") {
+                            work.classList.remove("hide")
+                    }
+                    else if (work.dataset.category !== e.target.textContent) {
+                        work.classList.add("hide")
+                    }
 
-
-        for (let filter of filters) {
-            filter.addEventListener("click", function () {
-
-                let tag = this.textContent;
-                console.log(this.textContent);
+                })
+                
+                
             })
-        }
+        })
+        
+    }
+    
+    
+    // renderLogin(login){
+    renderLogin = () => {
+ 
+        const data = document.querySelectorAll("#login")
+         data.forEach((item, i) => {
+            document.querySelector("#login").innerHTML = 
+            `<h2>Log in</h2>
+            <form action="#">
+            <label for="email">Email</label>
+            <input type="email" name="email"">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password">
+            <input type="submit" value="Se connecter">	
+            <h3>Mot de passe oublié</h3>
+            </form>`
+         })
+     }
+    
+    // loginPage(){
+    loginPage = () => {
+
+        this.renderLogin()
+        document.querySelector("#login").classList.toggle("hide")
+        const login = document.querySelectorAll(".loginBtn")
+
+        login.forEach(button => {
+            button.addEventListener("click", function (e) {
+                
+                document.querySelector("main").classList.toggle("hide")
+                document.querySelector("#login").classList.remove("hide")
+            })
+        })
 
     }
+
+
+
+
+
 }

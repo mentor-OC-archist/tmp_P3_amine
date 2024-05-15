@@ -49,4 +49,12 @@ export default class APIClass extends DOMClass {
         .catch(error => console.log(error));
     }
 
+    getLogged(param) {
+        
+        
+        this.renderLogin()
+        this.loginPage()
+
+    }
+                
 }
