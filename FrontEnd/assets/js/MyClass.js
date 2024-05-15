@@ -21,10 +21,23 @@ export default class MyClass extends APIClass{
         this.getWorks()
         this.getCategories()
         this.getFilter()
-        this.getLogged()
+        this.LoginBehavior()
+    }
+    okk(){
+        alert('okkkko')
     }
     
-    
+    LoginBehavior(param) {
+        
+        
+        this.renderLogin()
+        this.loginPage()
+
+    }
+    homepageLoggedBehavior(data){
+        console.log(data)
+        alert('ok')
+    }
     
 }
 const myApp = new MyClass()

@@ -81,26 +81,28 @@ export default class DOMClass {
     
     // renderLogin(login){
     renderLogin = () => {
- 
+
         const data = document.querySelectorAll("#login")
-         data.forEach((item, i) => {
+        data.forEach((item, i) => {
             document.querySelector("#login").innerHTML = 
             `<h2>Log in</h2>
-            <form action="#">
+            <form id="loginForm">
             <label for="email">Email</label>
-            <input type="email" name="email"">
+            <input type="email" name="email">
             <label for="password">Mot de passe</label>
             <input type="password" name="password">
             <input type="submit" value="Se connecter">	
             <h3>Mot de passe oublié</h3>
             </form>`
-         })
-     }
+        })
+        // console.log(this.getLogged)
+        loginForm.addEventListener('submit', this.getLogged)
+    }
     
     // loginPage(){
     loginPage = () => {
 
-        this.renderLogin()
+        // this.renderLogin()
         document.querySelector("#login").classList.toggle("hide")
         const login = document.querySelectorAll(".loginBtn")
 

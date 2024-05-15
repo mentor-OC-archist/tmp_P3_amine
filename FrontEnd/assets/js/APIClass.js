@@ -21,7 +21,6 @@ export default class APIClass extends DOMClass {
     }
 
 
-
     getWorks(param) {
         fetch(this.#works_endpoint)
             .then(response => response.json())
@@ -36,6 +35,33 @@ export default class APIClass extends DOMClass {
             .catch(error => console.log(error));
 
     }
+    getLogged = (e) => {
+        e.preventDefault()
+        const formData = new FormData(loginForm)
+        // console.log(loginForm)
+        // console.log(loginForm.email)
+        // console.log(loginForm.email.value)
+        // console.log(loginForm.password_.value)
+        const autre = {
+            email: loginForm.email.value
+            , password: loginForm.password.value
+        }
+        // alert(autre)
+
+        
+        
+        fetch("http://localhost:5678/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                accept: "application/json"
+            }
+            , body: JSON.stringify(autre)
+        })
+            .then(r => r.json())
+            .then(this.homepageLoggedBehavior)
+            .catch(error => console.log(error));
+    }
 
     getFilter(param) {
         Promise.all([
@@ -49,12 +75,7 @@ export default class APIClass extends DOMClass {
         .catch(error => console.log(error));
     }
 
-    getLogged(param) {
-        
-        
-        this.renderLogin()
-        this.loginPage()
 
-    }
+
                 
 }
